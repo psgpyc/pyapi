@@ -1,8 +1,8 @@
 version: "3"
 
 services:
-  app:
-
+  pyapi:
+    user: $UID:$GID
     build:
       context: .
     container_name: pyapicore
@@ -10,6 +10,6 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - ./app:/app
+      - ./src:/src
     command: >
       sh -c "python manage.py runserver 0.0.0.0:8000"
